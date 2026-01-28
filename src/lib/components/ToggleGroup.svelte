@@ -85,6 +85,7 @@
     white-space: nowrap;
     line-height: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
   }
 
   .lunettes-toggle-option:hover {

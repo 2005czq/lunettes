@@ -134,6 +134,7 @@
     transition: background 0.15s ease, border-color 0.15s ease;
     line-height: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
   }
 
   .lunettes-dropdown-trigger:hover {
@@ -189,6 +190,7 @@
     transform: translateY(-8px);
     pointer-events: none;
     transition: max-height 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+    padding: 0;
   }
 
   .lunettes-dropdown-list.open {
@@ -228,6 +230,7 @@
     cursor: pointer;
     transition: background 0.15s ease;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
   }
 
   .lunettes-dropdown-item:hover {

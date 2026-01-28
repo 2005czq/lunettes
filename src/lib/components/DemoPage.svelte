@@ -73,6 +73,7 @@
     margin: 0;
     font-weight: 600;
     color: rgb(242, 242, 247);
+    font-size: 25px;
   }
 
   .lunettes-demo-section {
@@ -83,7 +84,7 @@
 
   .lunettes-demo-section-title {
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: rgb(142, 142, 147);
     text-transform: uppercase;
