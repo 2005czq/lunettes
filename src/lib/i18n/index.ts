@@ -31,6 +31,9 @@ const translations: Record<Locale, Record<string, string>> = {
     'settings.filter.blacklist': '黑名单模式',
     'settings.filter.whitelist': '白名单模式',
     'settings.filter.placeholder': '输入网址...',
+    'settings.menu.floatingButton.on': '悬浮按钮：开',
+    'settings.menu.floatingButton.off': '悬浮按钮：关',
+    'settings.menu.reset': '恢复出厂设置',
   },
   'en': {
     // Dropdown
@@ -58,6 +61,9 @@ const translations: Record<Locale, Record<string, string>> = {
     'settings.filter.blacklist': 'Blacklist',
     'settings.filter.whitelist': 'Whitelist',
     'settings.filter.placeholder': 'Enter URL...',
+    'settings.menu.floatingButton.on': 'Floating Button: On',
+    'settings.menu.floatingButton.off': 'Floating Button: Off',
+    'settings.menu.reset': 'Reset to Factory Defaults',
   }
 };
 

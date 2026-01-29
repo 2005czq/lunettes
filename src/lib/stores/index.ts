@@ -1,5 +1,5 @@
 import { writable, get } from 'svelte/store';
-import type { Locale } from '../i18n';
+import { locale, t, type Locale } from '../i18n';
 
 const STORAGE_KEY = 'lunettes-settings';
 
@@ -28,8 +28,22 @@ const defaultSettings: Settings = {
   whitelist: [],
 };
 
+const getDefaultSettings = (): Settings => ({
+  ...defaultSettings,
+  sansSerifFonts: [...defaultSettings.sansSerifFonts],
+  serifFonts: [...defaultSettings.serifFonts],
+  blacklist: [...defaultSettings.blacklist],
+  whitelist: [...defaultSettings.whitelist],
+});
+
 declare function GM_getValue<T>(key: string, defaultValue?: T): T;
 declare function GM_setValue(key: string, value: unknown): void;
+declare function GM_registerMenuCommand(
+  caption: string,
+  onClick: () => void,
+  accessKey?: string
+): number;
+declare function GM_unregisterMenuCommand(menuCmdId: number): void;
 declare function GM_addValueChangeListener(
   key: string,
   callback: (key: string, oldValue: unknown, newValue: unknown, remote: boolean) => void
@@ -62,7 +76,7 @@ function createSettingsStore() {
     } catch (e) {
       console.warn('Failed to load lunettes settings:', e);
     }
-    return defaultSettings;
+    return getDefaultSettings();
   };
 
   // Save settings to storage (GM_* or localStorage fallback)
@@ -213,7 +227,46 @@ export function initTheme(): () => void {
 
 // Menu commands for userscript managers (Greasemonkey/Tampermonkey)
 export function initMenuCommands(): () => void {
-  // This is a placeholder for userscript menu commands
-  // Can be extended to register GM_registerMenuCommand if available
-  return () => {};
+  if (!isUserscriptEnvironment() || typeof GM_registerMenuCommand !== 'function') {
+    return () => {};
+  }
+
+  let menuIds: number[] = [];
+
+  const registerMenu = (s: Settings) => {
+    if (typeof GM_unregisterMenuCommand === 'function') {
+      menuIds.forEach((id) => GM_unregisterMenuCommand(id));
+    }
+    menuIds = [];
+
+    const toggleLabel = s.showFloatingButton
+      ? t('settings.menu.floatingButton.on', s.locale)
+      : t('settings.menu.floatingButton.off', s.locale);
+    const toggleId = GM_registerMenuCommand(toggleLabel, () => {
+      const current = settings.get().showFloatingButton;
+      settings.setShowFloatingButton(!current);
+    });
+    menuIds.push(toggleId);
+
+    const resetId = GM_registerMenuCommand(t('settings.menu.reset', s.locale), () => {
+      const defaults = getDefaultSettings();
+      settings.set(defaults);
+      locale.set(defaults.locale);
+    });
+    menuIds.push(resetId);
+  };
+
+  const unsubscribe = settings.subscribe((s) => {
+    registerMenu(s);
+  });
+
+  registerMenu(settings.get());
+
+  return () => {
+    unsubscribe();
+    if (typeof GM_unregisterMenuCommand === 'function') {
+      menuIds.forEach((id) => GM_unregisterMenuCommand(id));
+    }
+    menuIds = [];
+  };
 }
