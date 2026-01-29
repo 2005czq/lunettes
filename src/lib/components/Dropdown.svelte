@@ -49,7 +49,7 @@
   function handleBlur(e: FocusEvent) {
     const relatedTarget = e.relatedTarget as HTMLElement;
     if (!dropdownRef?.contains(relatedTarget)) {
-      // isOpen = false;
+      isOpen = false;
     }
   }
 
@@ -126,8 +126,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 10px;
-    background: rgb(44, 44, 46);
-    color: rgb(242, 242, 247);
+    background: var(--lunettes-component-secondary);
+    color: var(--lunettes-text-primary);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -138,7 +138,7 @@
   }
 
   .lunettes-dropdown-trigger:hover {
-    background: rgb(58, 58, 60);
+    background: var(--lunettes-component-middle);
   }
 
   .lunettes-dropdown-trigger:focus {
@@ -154,14 +154,14 @@
   }
 
   .lunettes-dropdown-value.placeholder {
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
   }
 
   .lunettes-dropdown-arrow {
     flex-shrink: 0;
     margin-left: 10px;
     transition: transform 0.15s ease;
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
   }
 
   .lunettes-dropdown-arrow.open {
@@ -177,8 +177,8 @@
     width: 100%;
     box-sizing: border-box;
     list-style: none;
-    background: rgb(28, 28, 30);
-    border: 1px solid rgb(58, 58, 60);
+    background: var(--lunettes-component-primary);
+    border: 1px solid var(--lunettes-misc);
     border-radius: 8px;
     overflow-y: auto;
     z-index: 1000;
@@ -209,13 +209,13 @@
   }
 
   .lunettes-dropdown-list::-webkit-scrollbar-thumb {
-    background: rgb(58, 58, 60);
+    background: var(--lunettes-misc);
     border-radius: 3px;
   }
 
   .lunettes-dropdown-empty {
     padding: 20px;
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
     text-align: center;
   }
 
@@ -225,7 +225,7 @@
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: rgb(242, 242, 247);
+    color: var(--lunettes-text-primary);
     text-align: left;
     cursor: pointer;
     transition: background 0.15s ease;
@@ -234,48 +234,15 @@
   }
 
   .lunettes-dropdown-item:hover {
-    background: rgb(44, 44, 46);
+    background: var(--lunettes-component-secondary);
   }
 
   .lunettes-dropdown-item.selected {
-    background: rgb(58, 58, 60);
-    color: rgb(242, 242, 247);
+    background: var(--lunettes-component-middle);
+    color: var(--lunettes-text-primary);
   }
 
   .lunettes-dropdown-item:focus {
     outline: none;
-  }
-
-  @media (prefers-color-scheme: light) {
-    .lunettes-dropdown-trigger {
-      background: rgb(229, 229, 234);
-      color: rgb(28, 28, 30);
-    }
-
-    .lunettes-dropdown-trigger:hover {
-      background: rgb(209, 209, 214);
-    }
-
-    .lunettes-dropdown-list {
-      background: rgb(242, 242, 247);
-      border-color: rgb(209, 209, 214);
-    }
-
-    .lunettes-dropdown-list::-webkit-scrollbar-thumb {
-      background: rgb(209, 209, 214);
-    }
-
-    .lunettes-dropdown-item {
-      color: rgb(28, 28, 30);
-    }
-
-    .lunettes-dropdown-item:hover {
-      background: rgb(229, 229, 234);
-    }
-
-    .lunettes-dropdown-item.selected {
-      background: rgb(209, 209, 214);
-      color: rgb(28, 28, 30);
-    }
   }
 </style>

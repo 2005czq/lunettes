@@ -2,7 +2,7 @@ import { writable, derived } from 'svelte/store';
 
 export type Locale = 'zh-CN' | 'en';
 
-export const locale = writable<Locale>('zh-CN');
+export const locale = writable<Locale>('en');
 
 const translations: Record<Locale, Record<string, string>> = {
   'zh-CN': {
@@ -17,15 +17,20 @@ const translations: Record<Locale, Record<string, string>> = {
     'list.addPlaceholder': '添加新条目...',
     'list.empty': '暂无条目',
 
-    // Demo
-    'demo.title': '组件演示',
-    'demo.dropdown': '下拉框',
-    'demo.toggleGroup': '切换按钮组',
-    'demo.list': '列表',
-    'demo.close': '关闭',
-
     // Settings
     'settings.title': '设置',
+    'settings.language': '界面语言',
+    'settings.theme': '主题',
+    'settings.theme.light': '亮色',
+    'settings.theme.system': '跟随系统',
+    'settings.theme.dark': '暗色',
+    'settings.fonts.sansSerif': '替换的非衬线体',
+    'settings.fonts.serif': '替换的衬线体',
+    'settings.fonts.placeholder': '输入字体名称...',
+    'settings.filter.title': '过滤的网站',
+    'settings.filter.blacklist': '黑名单模式',
+    'settings.filter.whitelist': '白名单模式',
+    'settings.filter.placeholder': '输入网址...',
   },
   'en': {
     // Dropdown
@@ -39,15 +44,20 @@ const translations: Record<Locale, Record<string, string>> = {
     'list.addPlaceholder': 'Add new item...',
     'list.empty': 'No items',
 
-    // Demo
-    'demo.title': 'Component Demo',
-    'demo.dropdown': 'Dropdown',
-    'demo.toggleGroup': 'Toggle Group',
-    'demo.list': 'List',
-    'demo.close': 'Close',
-
     // Settings
     'settings.title': 'Settings',
+    'settings.language': 'Language',
+    'settings.theme': 'Theme',
+    'settings.theme.light': 'Light',
+    'settings.theme.system': 'System',
+    'settings.theme.dark': 'Dark',
+    'settings.fonts.sansSerif': 'Sans-serif to Replace',
+    'settings.fonts.serif': 'Serif to Replace',
+    'settings.fonts.placeholder': 'Enter font name...',
+    'settings.filter.title': 'Filtered Sites',
+    'settings.filter.blacklist': 'Blacklist',
+    'settings.filter.whitelist': 'Whitelist',
+    'settings.filter.placeholder': 'Enter URL...',
   }
 };
 

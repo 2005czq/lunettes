@@ -166,7 +166,7 @@
     width: 100%;
     max-height: var(--max-height);
     overflow-y: auto;
-    background: rgb(44, 44, 46);
+    background: var(--lunettes-component-secondary);
     border-radius: 8px;
   }
 
@@ -179,7 +179,7 @@
   }
 
   .lunettes-list::-webkit-scrollbar-thumb {
-    background: rgb(58, 58, 60);
+    background: var(--lunettes-misc);
     border-radius: 3px;
   }
 
@@ -191,7 +191,7 @@
   .lunettes-list-item {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(58, 58, 60);
+    border-bottom: 1px solid var(--lunettes-misc);
     overflow: hidden;
     transition: opacity 0.15s ease, max-height 0.15s ease, padding 0.15s ease, border-bottom-width 0.15s ease;
     max-height: 36px;
@@ -228,14 +228,14 @@
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: rgb(242, 242, 247);
+    color: var(--lunettes-text-primary);
     text-align: left;
     cursor: text;
     min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 14px;
+    line-height: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     height: 36px;
     margin: 0;
@@ -253,7 +253,7 @@
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: rgb(58, 58, 60);
+    color: var(--lunettes-text-gray);
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.15s ease, color 0.15s ease;
@@ -265,7 +265,7 @@
   }
 
   .lunettes-list-delete:hover {
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
   }
 
   .lunettes-list-delete:focus {
@@ -279,14 +279,14 @@
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: rgb(242, 242, 247);
+    color: var(--lunettes-text-primary);
     text-align: left;
     cursor: text;
     min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 14px;
+    line-height: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     height: 36px;
     margin: 0;
@@ -297,36 +297,10 @@
   }
 
   .lunettes-list-input::placeholder {
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
   }
 
   .lunettes-list-new {
     background: transparent;
-  }
-
-  @media (prefers-color-scheme: light) {
-    .lunettes-list {
-      background: rgb(229, 229, 234);
-    }
-
-    .lunettes-list::-webkit-scrollbar-thumb {
-      background: rgb(209, 209, 214);
-    }
-
-    .lunettes-list-item {
-      border-bottom-color: rgb(209, 209, 214);
-    }
-
-    .lunettes-list-item-content {
-      color: rgb(28, 28, 30);
-    }
-
-    .lunettes-list-delete {
-      color: rgb(209, 209, 214);
-    }
-
-    .lunettes-list-input {
-      color: rgb(28, 28, 30);
-    }
   }
 </style>

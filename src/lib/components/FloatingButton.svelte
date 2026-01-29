@@ -26,8 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(242, 242, 247);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background: var(--lunettes-component-primary);
+    box-shadow: 0 2px 12px var(--lunettes-button-shadow);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -50,17 +50,6 @@
 
   .lunettes-fab-icon {
     font-size: 20px;
-    color: rgb(28, 28, 30);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .lunettes-fab {
-      background: rgb(28, 28, 30);
-      box-shadow: 0 2px 12px rgb(0, 0, 0, 0.4);
-    }
-
-    .lunettes-fab-icon {
-      color: rgb(242, 242, 247);
-    }
+    color: var(--lunettes-component-inverted);
   }
 </style>

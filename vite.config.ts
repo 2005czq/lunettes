@@ -12,6 +12,12 @@ export default defineConfig({
         namespace: 'npm/vite-plugin-monkey',
         match: ['*://*/*'],
         version: '0.1.0',
+        grant: [
+          'GM_getValue',
+          'GM_setValue',
+          'GM_addValueChangeListener',
+          'GM_removeValueChangeListener',
+        ],
       },
     }),
   ],

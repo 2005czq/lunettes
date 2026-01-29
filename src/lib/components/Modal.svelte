@@ -124,13 +124,13 @@
     max-width: 500px;
     max-height: calc(100vh - 48px);
     padding: 24px;
-    background: rgb(28, 28, 30);
+    background: var(--lunettes-component-primary);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgb(58, 58, 60);
+    border: 1px solid var(--lunettes-misc);
     border-radius: 14px;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 60px var(--lunettes-box-shadow);
     animation: slideUp 0.15s ease-out;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
   }
@@ -166,7 +166,7 @@
   }
 
   .lunettes-modal::-webkit-scrollbar-thumb {
-    background: rgb(58, 58, 60);
+    background: var(--lunettes-misc);
     border-radius: 3px;
   }
 
@@ -180,17 +180,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(44, 44, 46);
+    background: var(--lunettes-component-secondary);
     border: none;
     border-radius: 50%;
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
     cursor: pointer;
     transition: background 0.15s ease, color 0.15s ease;
   }
 
   .lunettes-modal-close:hover {
-    background: rgb(58, 58, 60);
-    color: rgb(174, 174, 178);
+    background: var(--lunettes-component-secondary-more);
+    color: var(--lunettes-text-secondary-more);
   }
 
   .lunettes-modal-close:focus {
@@ -199,27 +199,5 @@
 
   .lunettes-modal-content {
     width: 100%;
-  }
-
-  @media (prefers-color-scheme: light) {
-
-    .lunettes-modal {
-      background: rgb(242, 242, 247);
-      border-color: rgb(209, 209, 214);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .lunettes-modal::-webkit-scrollbar-thumb {
-      background: rgb(209, 209, 214);
-    }
-
-    .lunettes-modal-close {
-      background: rgb(229, 229, 234);
-    }
-
-    .lunettes-modal-close:hover {
-      background: rgb(209, 209, 214);
-      color: rgb(99, 99, 102);
-    }
   }
 </style>

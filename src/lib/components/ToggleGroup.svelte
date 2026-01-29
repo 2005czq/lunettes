@@ -58,7 +58,7 @@
   .lunettes-toggle-group {
     position: relative;
     display: flex;
-    background: rgb(44, 44, 46);
+    background: var(--lunettes-component-secondary);
     border-radius: 8px;
   }
 
@@ -66,7 +66,7 @@
     position: absolute;
     top: 3px;
     bottom: 3px;
-    background: rgb(28, 28, 30);
+    background: var(--lunettes-component-primary);
     border-radius: 5px;
     transition: left 0.15s ease, width 0.15s ease;
   }
@@ -78,7 +78,7 @@
     background: transparent;
     border: none;
     border-radius: 5px;
-    color: rgb(142, 142, 147);
+    color: var(--lunettes-text-secondary);
     cursor: pointer;
     transition: color 0.15s ease;
     z-index: 1;
@@ -89,36 +89,14 @@
   }
 
   .lunettes-toggle-option:hover {
-    color: rgb(209, 209, 214);
+    color: var(--lunettes-text-middle);
   }
 
   .lunettes-toggle-option.selected {
-    color: rgb(242, 242, 247);
+    color: var(--lunettes-text-primary);
   }
 
   .lunettes-toggle-option:focus {
     outline: none;
-  }
-
-  @media (prefers-color-scheme: light) {
-    .lunettes-toggle-group {
-      background: rgb(229, 229, 234);
-    }
-
-    .lunettes-toggle-slider {
-      background: rgb(242, 242, 247);
-    }
-
-    .lunettes-toggle-option {
-      color: rgb(142, 142, 147);
-    }
-
-    .lunettes-toggle-option:hover {
-      color: rgb(58, 58, 60);
-    }
-
-    .lunettes-toggle-option.selected {
-      color: rgb(28, 28, 30);
-    }
   }
 </style>

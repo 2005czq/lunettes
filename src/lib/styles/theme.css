@@ -1,0 +1,77 @@
+:root {
+  --lunettes-component-primary: rgb(28, 28, 30);
+  --lunettes-component-middle: rgb(58, 58, 60);
+  --lunettes-component-secondary: rgb(44, 44, 46);
+  --lunettes-component-secondary-more: rgb(58, 58, 60);
+  --lunettes-component-inverted: rgb(242, 242, 247);
+
+  --lunettes-text-primary: rgb(242, 242, 247);
+  --lunettes-text-middle: rgb(209, 209, 214);
+  --lunettes-text-secondary: rgb(142, 142, 147);
+  --lunettes-text-secondary-more: rgb(174, 174, 178);
+  --lunettes-text-gray: rgb(58, 58, 60);
+
+  --lunettes-misc: rgb(58, 58, 60);
+
+  --lunettes-button-shadow: rgba(0, 0, 0, 0.4);
+  --lunettes-box-shadow: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-lunettes-theme="dark"]) {
+    --lunettes-component-primary: rgb(242, 242, 247);
+    --lunettes-component-middle: rgb(209, 209, 214);
+    --lunettes-component-secondary: rgb(229, 229, 234);
+    --lunettes-component-secondary-more: rgb(209, 209, 214);
+    --lunettes-component-inverted: rgb(28, 28, 30);
+
+    --lunettes-text-primary: rgb(28, 28, 30);
+    --lunettes-text-middle: rgb(58, 58, 60);
+    --lunettes-text-secondary: rgb(142, 142, 147);
+    --lunettes-text-secondary-more: rgb(99, 99, 102);
+    --lunettes-text-gray: rgb(209, 209, 214);
+
+    --lunettes-misc: rgb(209, 209, 214);
+
+    --lunettes-button-shadow: rgba(0, 0, 0, 0.2);
+    --lunettes-box-shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+:root[data-lunettes-theme="dark"] {
+  --lunettes-component-primary: rgb(28, 28, 30);
+  --lunettes-component-middle: rgb(58, 58, 60);
+  --lunettes-component-secondary: rgb(44, 44, 46);
+  --lunettes-component-secondary-more: rgb(58, 58, 60);
+  --lunettes-component-inverted: rgb(242, 242, 247);
+
+  --lunettes-text-primary: rgb(242, 242, 247);
+  --lunettes-text-middle: rgb(209, 209, 214);
+  --lunettes-text-secondary: rgb(142, 142, 147);
+  --lunettes-text-secondary-more: rgb(174, 174, 178);
+  --lunettes-text-gray: rgb(58, 58, 60);
+
+  --lunettes-misc: rgb(58, 58, 60);
+
+  --lunettes-button-shadow: rgba(0, 0, 0, 0.4);
+  --lunettes-box-shadow: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-lunettes-theme="light"] {
+  --lunettes-component-primary: rgb(242, 242, 247);
+  --lunettes-component-middle: rgb(209, 209, 214);
+  --lunettes-component-secondary: rgb(229, 229, 234);
+  --lunettes-component-secondary-more: rgb(209, 209, 214);
+  --lunettes-component-inverted: rgb(28, 28, 30);
+
+  --lunettes-text-primary: rgb(28, 28, 30);
+  --lunettes-text-middle: rgb(58, 58, 60);
+  --lunettes-text-secondary: rgb(142, 142, 147);
+  --lunettes-text-secondary-more: rgb(99, 99, 102);
+  --lunettes-text-gray: rgb(209, 209, 214);
+
+  --lunettes-misc: rgb(209, 209, 214);
+
+  --lunettes-button-shadow: rgba(0, 0, 0, 0.2);
+  --lunettes-box-shadow: rgba(0, 0, 0, 0.3);
+}
