@@ -25,7 +25,7 @@ const defaultSettings: Settings = {
   serifFonts: ['Times New Roman', 'Georgia', 'Palatino', 'Serif'],
   filterMode: 'blacklist',
   blacklist: ['*://chatgpt.com/*', '*://gemini.google.com/*'],
-  whitelist: ['*://*.cnn.com/*', '*://www.bbc.com/*'],
+  whitelist: ['*://www.cnn.com/*', '*://www.bbc.com/*'],
 };
 
 const getDefaultSettings = (): Settings => ({
