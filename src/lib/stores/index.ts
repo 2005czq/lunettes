@@ -22,10 +22,10 @@ const defaultSettings: Settings = {
   theme: 'system',
   showFloatingButton: true,
   sansSerifFonts: ['Arial', 'Helvetica', 'Calibri', 'Roboto', 'Open Sans', 'Sans-Serif'],
-  serifFonts: ['Times New Roman', 'Georgia', 'Garamond', 'Baskerville', 'Palatino', 'Serif'],
+  serifFonts: ['Times New Roman', 'Georgia', 'Palatino', 'Serif'],
   filterMode: 'blacklist',
-  blacklist: [],
-  whitelist: [],
+  blacklist: ['*://chatgpt.com/*', '*://gemini.google.com/*'],
+  whitelist: ['*://*.cnn.com/*', '*://www.bbc.com/*'],
 };
 
 const getDefaultSettings = (): Settings => ({
