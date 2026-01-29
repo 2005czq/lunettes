@@ -56,6 +56,9 @@ const buildFontFace = (fontFamily: string, src: string): string => {
   return `@font-face {\n  font-family: ${fontFamily};\n  src: url('${safeSrc}') format('woff2');\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n}`;
 };
 
+const buildCaltRule = (): string =>
+  `:where(html, body, body *) {\n  font-feature-settings: \"calt\" 1 !important;\n  font-variant-ligatures: contextual !important;\n}`;
+
 export const buildBionicFontCss = async (settings: Settings): Promise<string> => {
   const sansFonts = uniqueFonts(settings.sansSerifFonts);
   const serifFonts = uniqueFonts(settings.serifFonts);
@@ -72,6 +75,10 @@ export const buildBionicFontCss = async (settings: Settings): Promise<string> =>
     const src = await getFontSourceUrl('serif');
     const serifRules = serifFonts.map((font) => buildFontFace(formatFontFamily(font), src));
     blocks.push(serifRules.join('\n'));
+  }
+
+  if (sansFonts.length > 0 || serifFonts.length > 0) {
+    blocks.push(buildCaltRule());
   }
 
   return blocks.join('\n');
