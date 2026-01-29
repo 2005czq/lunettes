@@ -1,5 +1,8 @@
 import { mount } from 'svelte';
 import App from './App.svelte';
+import { initBionicReading } from './lib/bionic';
+
+initBionicReading();
 
 const app = mount(App, {
   target: (() => {
