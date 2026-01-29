@@ -121,7 +121,7 @@
   .lunettes-modal {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 40%;
     max-height: calc(100vh - 48px);
     padding: 24px;
     background: var(--lunettes-component-primary);

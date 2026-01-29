@@ -4,7 +4,7 @@
 
   let {
     items = $bindable<string[]>([]),
-    maxHeight = 300,
+    maxHeight = 200,
     placeholder = '',
   }: {
     items?: string[];
