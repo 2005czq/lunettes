@@ -1,48 +1,62 @@
-# Svelte + TS + Vite
+<div align="center">
+  <img src="./public/logo.svg" alt="Lunettes Logo" width="256">
+  <p>A browser script that intelligently modifies web fonts using CSS injection to achieve Bionic Reading.</p>
+</div>
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+**English** | [简体中文](./README.zh-CN.md)
 
-## Need an official Svelte framework?
+# Introduction
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+***L*un**ettes is a Tampermonkey script that brings Bionic Reading effects to web pages. Inspired by [Fast-Font](https://github.com/Born2Root/Fast-Font), it utilizes CSS to inject custom fonts that leverage OpenType features. It achieves the visual effect of Bionic Reading without modifying any text nodes in the HTML.
 
-## Technical considerations
+> [!note]
+>
+> Bionic Reading is a method that guides the eyes through text via artificial fixation points. By highlighting the initial letters of words, it allows the brain to focus on these points and automatically complete the rest of the word, thereby improving reading speed and comprehension.
 
-**Why use this over SvelteKit?**
+<div align="center">
+  <img src="./public/preview.png" alt="Preview" width="512">
+</div>
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-  `vite dev` and `vite build` wouldn't work in a SvelteKit environment, for example.
+# Features
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+- Applies effects using CSS `@font-face` and `font-feature-settings`, ensuring high-performance rendering and compatibility with modern Web frameworks.
+- Caches font data locally to reduce network requests.
+- Highly customizable, allowing configuration of "bionized" fonts and website filtering.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+# Installation
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+1. Install a user script manager, such as [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo).
+2. Install this script.
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+# Usage & Configuration
 
-**Why include `.vscode/extensions.json`?**
+After installation, a glasses floating button will appear in the bottom right corner of the page. Click it to open the settings page.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+<div align="center">
+  <img src="./public/settings.png" alt="Settings Page" width="512">
+</div>
 
-**Why enable `allowJs` in the TS template?**
+- **Language**: Currently supports English and 简体中文.
+- **Theme**: Supports Light, Follow System (Default), and Dark themes.
+- **Font Matching Settings**: Specify which fonts on the page should be replaced with bionic fonts.
+	- **Sans-serif to Replace**: Add font names, such as `Google Sans` or `Segoe UI`.
+	- **Serif to Replace**: Same as above, add font names.
+- **Filtered Websites**: Precisely control where ***L*un**ettes takes effect to avoid conflicts or optimize reading experiences for specific scenarios. Supports wildcards (e.g., `*://*.google.com/*`).
+	- **Blacklist Mode**: The script will run on all websites **except** those in the list. (Default)
+	- **Whitelist Mode**: The script will run **only** on websites in the list.
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+Additionally, the Tampermonkey menu provides options to toggle the floating button display and a factory reset button.
 
-**Why is HMR not preserving my local component state?**
+# Roadmap
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+- [ ] Provide a control to freely pick fonts from web page elements to enhance user experience and customization.
+- [ ] Utilize [Fontsource API](https://fontsource.org/docs/api/introduction) or [Google Fonts API](https://developers.google.com/fonts/docs/developer_api) to automatically identify the classification of page fonts and intelligently apply the corresponding bionic font variants.
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+# Credits
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store';
-export default writable(0);
-```
+- [Fast-Font](https://github.com/Born2Root/Fast-Font)
+- [Inter](https://fonts.google.com/specimen/Inter): The base font for the sans-serif bionic font in this project.
+- [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4): The base font for the serif bionic font in this project.
