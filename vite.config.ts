@@ -2,16 +2,45 @@ import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import monkey from 'vite-plugin-monkey';
 
+const userscriptVersion = process.env.npm_package_version ?? '0.0.0';
+
 export default defineConfig({
+  build: {
+    minify: false,
+    sourcemap: false,
+    cssMinify: false,
+    rollupOptions: {
+      output: {
+        compact: false,
+      },
+    },
+  },
+  esbuild: {
+    minifyIdentifiers: false,
+    minifySyntax: false,
+    minifyWhitespace: false,
+  },
   plugins: [
     svelte(),
     monkey({
       entry: 'src/entry/userscript.ts',
       userscript: {
+        name: {
+          '': 'lunettes',
+          en: 'lunettes',
+          'zh-CN': 'lunettes',
+        },
+        description: {
+          '': 'A userscript that intelligently modifies web fonts using CSS injection to achieve Bionic Reading.',
+          en: 'A userscript that intelligently modifies web fonts using CSS injection to achieve Bionic Reading.',
+          'zh-CN': '一个使用 CSS 注入智能修改网页字体以实现仿生阅读的用户脚本。',
+        },
+        author: 'CZQ-King',
+        license: 'MIT',
         icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIHY3LjEuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIENvcHlyaWdodCAyMDI2IEZvbnRpY29ucywgSW5jLi0tPjxwYXRoIGQ9Ik0xNzUuMyAxNjBDMTYxLjMgMTYwIDE0OC44IDE2OS4yIDE0NC43IDE4Mi42TDEwMi40IDMyMEwyNTYgMzIwQzI3My43IDMyMCAyODggMzM0LjMgMjg4IDM1MkwzNTIgMzUyQzM1MiAzMzQuMyAzNjYuMyAzMjAgMzg0IDMyMEw1MzcuNiAzMjBMNDk1LjMgMTgyLjZDNDkxLjIgMTY5LjIgNDc4LjggMTYwIDQ2NC43IDE2MEw0MzIgMTYwQzQxNC4zIDE2MCA0MDAgMTQ1LjcgNDAwIDEyOEM0MDAgMTEwLjMgNDE0LjMgOTYgNDMyIDk2TDQ2NC43IDk2QzUwNi44IDk2IDU0NC4xIDEyMy41IDU1Ni41IDE2My44TDYwMS45IDMxMS4zQzYwNiAzMjQuNSA2MDggMzM4LjIgNjA4IDM1Mkw2MDggNDQ4QzYwOCA1MDEgNTY1IDU0NCA1MTIgNTQ0TDQ0OCA1NDRDMzk1IDU0NCAzNTIgNTAxIDM1MiA0NDhMMzUyIDQxNkwyODggNDE2TDI4OCA0NDhDMjg4IDUwMSAyNDUgNTQ0IDE5MiA1NDRMMTI4IDU0NEM3NSA1NDQgMzIgNTAxIDMyIDQ0OEwzMiAzNTJDMzIgMzM4LjIgMzQuMSAzMjQuNSAzOC4xIDMxMS4zTDgzLjUgMTYzLjhDOTUuOSAxMjMuNSAxMzMuMSA5NiAxNzUuMyA5NkwyMDggOTZDMjI1LjcgOTYgMjQwIDExMC4zIDI0MCAxMjhDMjQwIDE0NS43IDIyNS43IDE2MCAyMDggMTYwTDE3NS4zIDE2MHpNOTYgMzg0TDk2IDQ0OEM5NiA0NjUuNyAxMTAuMyA0ODAgMTI4IDQ4MEwxOTIgNDgwQzIwOS43IDQ4MCAyMjQgNDY1LjcgMjI0IDQ0OEwyMjQgMzg0TDk2IDM4NHpNNTEyIDQ4MEM1MjkuNyA0ODAgNTQ0IDQ2NS43IDU0NCA0NDhMNTQ0IDM4NEw0MTYgMzg0TDQxNiA0NDhDNDE2IDQ2NS43IDQzMC4zIDQ4MCA0NDggNDgwTDUxMiA0ODB6Ii8+PC9zdmc+',
         namespace: 'npm/vite-plugin-monkey',
         match: ['*://*/*'],
-        version: '1.0.0',
+        version: userscriptVersion,
         grant: [
           'GM_getValue',
           'GM_setValue',
