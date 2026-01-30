@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { locale, t } from '../i18n';
+  import { locale, t } from '../../core/i18n';
 
   let {
     isOpen = $bindable(false),
@@ -122,7 +122,7 @@
     position: relative;
     width: 100%;
     max-width: 30%;
-    min-width: 400px;
+    min-width: 450px;
     max-height: calc(100vh - 48px);
     padding: 24px;
     background: var(--lunettes-component-primary);
@@ -133,7 +133,6 @@
     overflow-y: auto;
     box-shadow: 0 20px 60px var(--lunettes-box-shadow);
     animation: slideUp 0.15s ease-out;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
   }
 
   @keyframes slideUp {

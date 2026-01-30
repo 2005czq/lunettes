@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { locale, t } from '../i18n';
+  import { locale, t } from '../../core/i18n';
   import { tick } from 'svelte';
 
   let {
@@ -236,7 +236,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     height: 36px;
     margin: 0;
   }
@@ -287,7 +286,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     height: 36px;
     margin: 0;
   }

@@ -1,12 +1,11 @@
 <script lang="ts">
-  import { locale, t, type Locale } from '../i18n';
-  import { settings, type Theme, type FilterMode } from '../stores';
-  import Dropdown from './Dropdown.svelte';
-  import EditableList from './EditableList.svelte';
-  import ToggleGroup from './ToggleGroup.svelte';
+  import { locale, t, type Locale } from '../../core/i18n';
+  import { settings, type Theme, type FilterMode } from '../../core/settings';
+  import Dropdown from '../components/Dropdown.svelte';
+  import EditableList from '../components/EditableList.svelte';
+  import ToggleGroup from '../components/ToggleGroup.svelte';
 
   const currentLocale = $derived($locale);
-  const currentSettings = $derived($settings);
 
   // Language options
   const languageOptions = [
@@ -28,13 +27,21 @@
   ]);
 
   // Local state bound to components - initialized from store
-  let selectedLanguage = $state($settings.locale);
-  let selectedTheme = $state($settings.theme);
-  let sansSerifFonts = $state([...$settings.sansSerifFonts]);
-  let serifFonts = $state([...$settings.serifFonts]);
-  let filterMode = $state($settings.filterMode);
-  let blacklist = $state([...$settings.blacklist]);
-  let whitelist = $state([...$settings.whitelist]);
+  let selectedLanguage = $state<Locale>($settings.locale);
+  let selectedTheme = $state<Theme>($settings.theme);
+  let sansSerifFonts = $state<string[]>([...$settings.sansSerifFonts]);
+  let serifFonts = $state<string[]>([...$settings.serifFonts]);
+  let filterMode = $state<FilterMode>($settings.filterMode);
+  let blacklist = $state<string[]>([...$settings.blacklist]);
+  let whitelist = $state<string[]>([...$settings.whitelist]);
+
+  const arraysEqual = (a: string[], b: string[]) => a.length === b.length && a.every((value, index) => value === b[index]);
+
+  const syncList = (next: string[], current: string[], setter: (value: string[]) => void) => {
+    if (!arraysEqual(next, current)) {
+      setter(next);
+    }
+  };
 
   // Sync with store changes (e.g., from other tabs)
   $effect(() => {
@@ -47,54 +54,23 @@
     whitelist = [...$settings.whitelist];
   });
 
-  // Handle language change
   $effect(() => {
     if (selectedLanguage && selectedLanguage !== $settings.locale) {
-      settings.setLocale(selectedLanguage as Locale);
-      locale.set(selectedLanguage as Locale);
+      settings.setLocale(selectedLanguage);
+      locale.set(selectedLanguage);
     }
-  });
-
-  // Handle theme change
-  $effect(() => {
     if (selectedTheme && selectedTheme !== $settings.theme) {
-      settings.setTheme(selectedTheme as Theme);
+      settings.setTheme(selectedTheme);
     }
-  });
 
-  // Handle sans-serif fonts change
-  $effect(() => {
-    if (JSON.stringify(sansSerifFonts) !== JSON.stringify($settings.sansSerifFonts)) {
-      settings.setSansSerifFonts(sansSerifFonts);
-    }
-  });
-
-  // Handle serif fonts change
-  $effect(() => {
-    if (JSON.stringify(serifFonts) !== JSON.stringify($settings.serifFonts)) {
-      settings.setSerifFonts(serifFonts);
-    }
-  });
-
-  // Handle filter mode change
-  $effect(() => {
     if (filterMode && filterMode !== $settings.filterMode) {
-      settings.setFilterMode(filterMode as FilterMode);
+      settings.setFilterMode(filterMode);
     }
-  });
 
-  // Handle blacklist change
-  $effect(() => {
-    if (JSON.stringify(blacklist) !== JSON.stringify($settings.blacklist)) {
-      settings.setBlacklist(blacklist);
-    }
-  });
-
-  // Handle whitelist change
-  $effect(() => {
-    if (JSON.stringify(whitelist) !== JSON.stringify($settings.whitelist)) {
-      settings.setWhitelist(whitelist);
-    }
+    syncList(sansSerifFonts, $settings.sansSerifFonts, settings.setSansSerifFonts);
+    syncList(serifFonts, $settings.serifFonts, settings.setSerifFonts);
+    syncList(blacklist, $settings.blacklist, settings.setBlacklist);
+    syncList(whitelist, $settings.whitelist, settings.setWhitelist);
   });
 
   const githubUrl = 'https://github.com/2005czq/lunettes';
@@ -118,7 +94,6 @@
         <Dropdown
           options={languageOptions}
           bind:value={selectedLanguage}
-          defaultValue={currentSettings.locale}
         />
       </div>
     </div>
@@ -188,7 +163,6 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
   }
 
   /* Logo Section */

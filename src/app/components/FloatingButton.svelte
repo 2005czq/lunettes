@@ -33,7 +33,6 @@
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     z-index: 9998;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
   }
 
   .lunettes-fab:hover {

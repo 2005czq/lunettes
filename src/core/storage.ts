@@ -1,7 +1,6 @@
-declare function GM_getValue<T>(key: string, defaultValue?: T): T;
-declare function GM_setValue(key: string, value: unknown): void;
-
 const canUseGMStorage = () => typeof GM_getValue === 'function' && typeof GM_setValue === 'function';
+
+export const isUserscriptStorageAvailable = (): boolean => canUseGMStorage();
 
 export const getStoredValue = (key: string): string | undefined => {
   try {

@@ -1,4 +1,4 @@
-import { settings, type Settings } from '../stores';
+import { settings, type Settings } from '../settings';
 import { buildBionicFontCss } from './css';
 import { isSiteFiltered } from './filters';
 import { injectStyle } from './style';

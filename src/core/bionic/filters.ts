@@ -1,4 +1,4 @@
-import type { Settings } from '../stores';
+import type { Settings } from '../settings';
 
 const escapeRegex = (value: string) => value.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
 

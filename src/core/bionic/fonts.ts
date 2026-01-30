@@ -1,4 +1,4 @@
-import { getStoredValue, setStoredValue } from './storage';
+import { getStoredValue, setStoredValue } from '../storage';
 
 const FONT_SOURCES = {
   sans: {

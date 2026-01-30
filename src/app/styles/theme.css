@@ -17,6 +17,17 @@
   --lunettes-box-shadow: rgba(0, 0, 0, 0.6);
 }
 
+.lunettes-root {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+}
+
+.lunettes-root,
+.lunettes-root *,
+.lunettes-root *::before,
+.lunettes-root *::after {
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: light) {
   :root:not([data-lunettes-theme="dark"]) {
     --lunettes-component-primary: rgb(242, 242, 247);

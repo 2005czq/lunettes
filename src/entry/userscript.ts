@@ -1,6 +1,6 @@
 import { mount } from 'svelte';
-import App from './App.svelte';
-import { initBionicReading } from './lib/bionic';
+import App from '../app/App.svelte';
+import { initBionicReading } from '../core/bionic';
 
 initBionicReading();
 

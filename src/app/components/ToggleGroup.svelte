@@ -12,9 +12,6 @@
     value?: string;
   } = $props();
 
-  let containerRef: HTMLDivElement;
-  let buttonRefs: HTMLButtonElement[] = [];
-
   $effect(() => {
     if (!value && options.length > 0) {
       value = options[0].value;
@@ -37,11 +34,10 @@
   });
 </script>
 
-<div class="lunettes-toggle-group" bind:this={containerRef} role="radiogroup">
+<div class="lunettes-toggle-group" role="radiogroup">
   <div class="lunettes-toggle-slider" style={sliderStyle}></div>
   {#each options as opt, i (opt.value)}
     <button
-      bind:this={buttonRefs[i]}
       class="lunettes-toggle-option"
       class:selected={value === opt.value}
       onclick={() => select(opt)}
@@ -84,7 +80,6 @@
     z-index: 1;
     white-space: nowrap;
     line-height: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
   }
 

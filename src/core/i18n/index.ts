@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 export type Locale = 'zh-CN' | 'en';
 
@@ -70,7 +70,3 @@ const translations: Record<Locale, Record<string, string>> = {
 export function t(key: string, currentLocale: Locale): string {
   return translations[currentLocale]?.[key] || key;
 }
-
-export const i18n = derived(locale, ($locale) => {
-  return (key: string) => t(key, $locale);
-});

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { locale, t } from '../i18n';
+  import { locale, t } from '../../core/i18n';
 
   interface Option {
     value: string;
@@ -28,7 +28,6 @@
 
   let isOpen = $state(false);
   let dropdownRef: HTMLDivElement;
-  let listRef: HTMLUListElement;
 
   const currentLocale = $derived($locale);
   const displayPlaceholder = $derived(placeholder || t('dropdown.placeholder', currentLocale));
@@ -89,7 +88,6 @@
     class="lunettes-dropdown-list"
     class:open={isOpen}
     style="--list-height: {listHeight}px"
-    bind:this={listRef}
     role="listbox"
   >
     {#if options.length === 0}
@@ -133,7 +131,6 @@
     cursor: pointer;
     transition: background 0.15s ease, border-color 0.15s ease;
     line-height: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
   }
 
@@ -229,7 +226,6 @@
     text-align: left;
     cursor: pointer;
     transition: background 0.15s ease;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
   }
 

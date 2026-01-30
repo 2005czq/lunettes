@@ -1,15 +1,15 @@
 <script lang="ts">
   import '@fortawesome/fontawesome-free/css/all.min.css';
   import './styles/theme.css';
-  import { locale } from './i18n';
-  import { FloatingButton, Modal, SettingsPage } from './components';
-  import { settings, initTheme, initMenuCommands } from './stores';
+  import { locale } from '../core/i18n';
+  import { FloatingButton, Modal } from './components';
+  import SettingsPage from './pages/SettingsPage.svelte';
+  import { settings, initTheme, initMenuCommands } from '../core/settings';
   import { onMount } from 'svelte';
 
   let isModalOpen = $state(false);
   const showFloatingButton = $derived($settings.showFloatingButton);
 
-  // Initialize theme, locale, and menu commands
   onMount(() => {
     const currentSettings = settings.get();
     locale.set(currentSettings.locale);
@@ -28,10 +28,12 @@
   }
 </script>
 
-{#if showFloatingButton}
-  <FloatingButton onclick={openModal} />
-{/if}
+<div class="lunettes-root">
+  {#if showFloatingButton}
+    <FloatingButton onclick={openModal} />
+  {/if}
 
-<Modal bind:isOpen={isModalOpen}>
-  <SettingsPage />
-</Modal>
+  <Modal bind:isOpen={isModalOpen}>
+    <SettingsPage />
+  </Modal>
+</div>

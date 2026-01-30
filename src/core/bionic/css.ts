@@ -1,4 +1,4 @@
-import type { Settings } from '../stores';
+import type { Settings } from '../settings';
 import { getFontSourceUrl } from './fonts';
 
 const normalizeFontName = (font: string) => font.trim();
