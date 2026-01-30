@@ -95,6 +95,7 @@ pnpm run build # 构建项目
 - [Fast-Font](https://github.com/Born2Root/Fast-Font)
 - [Inter](https://fonts.google.com/specimen/Inter): 本项目中无衬线仿生字体的基础字体。
 - [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4): 本项目中衬线仿生字体的基础字体。
+- [Font Awesome](https://fontawesome.com/)：用户脚本中使用的图标（采用 CC BY 4.0 许可证）。
 
 # 许可证
 

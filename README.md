@@ -95,6 +95,7 @@ For i18n contributions, please:
 - [Fast-Font](https://github.com/Born2Root/Fast-Font)
 - [Inter](https://fonts.google.com/specimen/Inter): The base font for the sans-serif bionic font in this project.
 - [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4): The base font for the serif bionic font in this project.
+- [Font Awesome](https://fontawesome.com/): Icons used in the userscript (licensed under CC BY 4.0).
 
 # License
 
