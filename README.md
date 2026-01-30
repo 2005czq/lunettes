@@ -4,7 +4,6 @@
     <source media="(prefers-color-scheme: dark)" srcset="./docs/images/logo-dark.svg">
     <img src="./docs/images/logo-light.svg" alt="Lunettes Logo" width="256">
   </picture>
-
 	<h1><b><i>L</i>un</b>ettes</h1>
 
   <p>A userscript that intelligently modifies web fonts using CSS injection to achieve Bionic Reading.</p>

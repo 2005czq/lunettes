@@ -4,7 +4,6 @@
     <source media="(prefers-color-scheme: dark)" srcset="./docs/images/logo-dark.svg">
     <img src="./docs/images/logo-light.svg" alt="Lunettes Logo" width="256">
   </picture>
-
 	<h1><b><i>L</i>un</b>ettes</h1>
 
   <p>一个使用 CSS 注入智能修改网页字体以实现仿生阅读的用户脚本。</p>
