@@ -247,10 +247,12 @@
   .lunettes-settings-columns {
     display: flex;
     gap: 16px;
+    width: 100%;
   }
 
   .lunettes-settings-column {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
