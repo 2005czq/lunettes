@@ -1,16 +1,28 @@
 <div align="center">
-  <img src="./public/logo.svg" alt="Lunettes Logo" width="256">
-  <p>一个使用 CSS 注入智能修改网页字体以实现仿生阅读的浏览器脚本。</p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./public/logo-dark.svg">
+    <img src="./public/logo-light.svg" alt="Lunettes Logo" width="256">
+  </picture>
+	<h1><b><i>L</i>un</b>ettes</h1>
+  <p>一个使用 CSS 注入智能修改网页字体以实现仿生阅读的用户脚本。</p>
 </div>
-
-
----
 
 [English](./README.md) | **简体中文**
 
+# 目录
+
+- [简介](#简介)
+- [特性](#特性)
+- [安装与配置](#安装与配置)
+- [开发](#开发)
+- [未来规划](#未来规划)
+- [贡献](#贡献)
+- [致谢](#致谢)
+- [许可证](#许可证)
+
 # 简介
 
-***L*un**ettes 是一款将仿生阅读效果应用到网页上的油猴脚本。受到 [Fast-Font](https://github.com/Born2Root/Fast-Font) 的启发，它利用 CSS 注入了使用 OpenType 特性的自定义字体。在不修改 HTML 中任何文本节点的情况下实现仿生阅读 (Bionic Reading) 的视觉效果。
+***L*un**ettes 是一款将仿生阅读效果应用到网页上的用户脚本。受到 [Fast-Font](https://github.com/Born2Root/Fast-Font) 的启发，它利用 CSS 注入了使用 OpenType 特性的自定义字体。在不修改 HTML 中任何文本节点的情况下实现仿生阅读 (Bionic Reading) 的视觉效果。
 
 > [!note]
 >
@@ -20,18 +32,18 @@
   <img src="./public/preview.png" alt="效果图" width="512">
 </div>
 
+<p align="center">来源：<a href="https://www.theatlantic.com/ideas/2026/01/war-empathy-hillary-clinton/685809/">The Atlantic</a></p>
+
 # 特性
 
 - 使用 CSS `@font-face` 和 `font-feature-settings` 应用效果，确保高性能渲染且与现代 Web 框架兼容。
 - 本地缓存字体数据以减少网络请求。
 - 高度自定义，允许配置被“仿生化”的字体和过滤的网站。
 
-# 安装
+# 安装与配置
 
 1. 安装一个用户脚本管理器，如 [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)。
 2. 安装本脚本。
-
-# 使用与配置
 
 安装后，页面右下角会出现一个眼镜悬浮按钮，点击打开设置页。
 
@@ -50,13 +62,40 @@
 
 除此之外，油猴菜单中提供了悬浮按钮显示开关和恢复出厂设置按钮。
 
+# 开发
+
+```bash
+git clone https://github.com/2005czq/lunettes.git # 克隆仓库
+pnpm install # 安装依赖
+pnpm run dev # 启动开发服务器
+pnpm run build # 构建项目
+```
+
 # 未来规划
 
 - [ ] 提供自由获取网页元素字体的控件，以提升用户体验和定制化程度。
 - [ ] 利用 [Fontsource API](https://fontsource.org/docs/api/introduction) 或 [Google Fonts API](https://developers.google.com/fonts/docs/developer_api) 自动识别页面字体的分类，并智能应用对应的仿生字体变体。
+
+# 贡献
+
+欢迎提交 Pull Request！您可以通过以下方式贡献：
+
+- 添加更多语言支持（i18n）
+- 改进用户界面
+- 修复错误
+- 添加新功能
+
+对于 i18n 贡献，请：
+- 在 `src/lib/i18n/` 目录中添加翻译
+- 提供翻译后设置页的截图（创建新的 `public/seettings.<lang>.png` 文件）
+- 翻译 README（创建新的 `README.<lang>.md` 文件）
 
 # 致谢
 
 - [Fast-Font](https://github.com/Born2Root/Fast-Font)
 - [Inter](https://fonts.google.com/specimen/Inter): 本项目中无衬线仿生字体的基础字体。
 - [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4): 本项目中衬线仿生字体的基础字体。
+
+# 许可证
+
+本项目采用 [MIT 许可证](LICENSE)。
