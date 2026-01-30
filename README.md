@@ -8,9 +8,9 @@
 
   <p>A userscript that intelligently modifies web fonts using CSS injection to achieve Bionic Reading.</p>
 
-  [![Install](https://img.shields.io/badge/Install-Greasy%20Fork-orange?style=for-the-badge&logo=greasyfork&logoColor=white)](https://greasyfork.org/zh-CN/scripts/564575-lunettes)
+  [![Install](https://img.shields.io/badge/Install-Greasy%20Fork-orange?style=for-the-badge&logo=greasyfork&logoColor=white)](https://greasyfork.org/en/scripts/564575-lunettes)
 
-  [![Stars](https://img.shields.io/github/stars/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/stargazers) [![Downloads](https://img.shields.io/greasyfork/dt/564575?style=flat-square)](https://greasyfork.org/zh-CN/scripts/564575-lunettes) [![Version](https://img.shields.io/github/v/release/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/releases) [![Last Commit](https://img.shields.io/github/last-commit/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/commits/main)
+  [![Stars](https://img.shields.io/github/stars/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/stargazers) [![Downloads](https://img.shields.io/greasyfork/dt/564575?style=flat-square)](https://greasyfork.org/en/scripts/564575-lunettes) [![Version](https://img.shields.io/github/v/release/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/releases) [![Last Commit](https://img.shields.io/github/last-commit/2005czq/lunettes?style=flat-square)](https://github.com/2005czq/lunettes/commits/main)
 
   ![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=flat-square&logo=svelte&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=flat-square&logo=vite&logoColor=white)
 
